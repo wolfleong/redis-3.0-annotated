@@ -65,7 +65,9 @@ struct sdshdr {
  * T = O(1)
  */
 static inline size_t sdslen(const sds s) {
+    //计算 sdshdr 的指针地址
     struct sdshdr *sh = (void*)(s-(sizeof(struct sdshdr)));
+    //读取指针对象的 len 属性
     return sh->len;
 }
 
